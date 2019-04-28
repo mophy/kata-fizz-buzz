@@ -16,6 +16,9 @@ describe('FizzBuzzGame', () => {
             [6, 'Fizz'],
             [10, 'Buzz'],
             [15, 'FizzBuzz'],
+            [13, 'Fizz'],
+            [52, 'Buzz'],
+            [53, 'FizzBuzz'],
         ], (param, result) => {
             it(`should work for ${param}`, () => {
                 expect(fizzBuzzGame.of(param)).toEqual(result);
