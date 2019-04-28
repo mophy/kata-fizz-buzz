@@ -1,22 +1,27 @@
 export default class FizzBuzzGame {
 
-    of(n) {
+    of(num) {
         let result = '';
-        if (this.isFizz(n)) result += 'Fizz';
-        if (this.isBuzz(n)) result += 'Buzz';
-        return result || n;
+        if (this.numIsFizz(num)) result += 'Fizz';
+        if (this.numIsBuzz(num)) result += 'Buzz';
+        return result || num;
     }
 
-    isBuzz(n) {
-        return this.modOrIncludes(n, 5);
+    print(count, printer) {
+        for (let i = 0; i < count; i++)
+            printer(this.of(i + 1));
     }
 
-    isFizz(n) {
-        return this.modOrIncludes(n, 3);
+    numIsBuzz(num) {
+        return this.numModsOrIncludesX(num, 5);
     }
 
-    modOrIncludes(n, x) {
-        return (n % x === 0) || `${n}`.includes(`${x}`);
+    numIsFizz(num) {
+        return this.numModsOrIncludesX(num, 3);
+    }
+
+    numModsOrIncludesX(num, x) {
+        return (num % x === 0) || `${num}`.includes(`${x}`);
     }
 
 }

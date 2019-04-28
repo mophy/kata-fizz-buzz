@@ -26,4 +26,18 @@ describe('FizzBuzzGame', () => {
         });
     });
 
+    describe('print', () => {
+
+        it('should call printer 100 times', () => {
+            let printer = jest.fn().mockName('printer');
+
+            fizzBuzzGame.print(100, printer);
+
+            expect(printer).toHaveBeenCalledTimes(100);
+            for (let i = 0; i < 100; i++)
+                expect(printer.mock.calls[i][0]).toEqual(fizzBuzzGame.of(i + 1));
+        });
+
+    });
+
 });
