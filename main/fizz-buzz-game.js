@@ -1,15 +1,19 @@
 export default class FizzBuzzGame {
 
     of(num) {
-        let result = '';
-        if (this.numIsFizz(num)) result += 'Fizz';
-        if (this.numIsBuzz(num)) result += 'Buzz';
-        return result || num;
+        return (this.filterFizz(num) + this.filterBuzz(num)) || num;
+    }
+
+    filterBuzz(num) {
+        return this.numIsBuzz(num) ? 'Buzz' : '';
+    }
+
+    filterFizz(num) {
+        return this.numIsFizz(num) ? 'Fizz' : '';
     }
 
     print(count, printer) {
-        for (let i = 0; i < count; i++)
-            printer(this.of(i + 1));
+        [...Array(count)].forEach((k, i) => printer(this.of(i + 1)));
     }
 
     numIsBuzz(num) {
